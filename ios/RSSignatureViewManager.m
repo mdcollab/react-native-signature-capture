@@ -14,9 +14,9 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_VIEW_PROPERTY(rotateClockwise, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 
--(dispatch_queue_t) methodQueue
-{
-	return dispatch_get_main_queue();
+// See https://github.com/facebook/react-native/issues/1365
+- (dispatch_queue_t)methodQueue {
+    return _bridge.uiManager.methodQueue;
 }
 
 -(UIView *) view
