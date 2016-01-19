@@ -38,9 +38,6 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 RCT_EXPORT_METHOD(getBase64ImageData:(nonnull NSNumber *)reactTag callback:(RCTResponseSenderBlock)callback) {
     [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary *viewRegistry) {
         RSSignatureView *view = viewRegistry[reactTag];
-        if (![view isKindOfClass:[RSSignatureView class]]) {
-            NSLog(@"Invalid view returned from registry, expecting RSSignatureView, got: %@", view);
-        }
         callback(@[[NSNull null], [view getImageData]]);
     }];
 }
