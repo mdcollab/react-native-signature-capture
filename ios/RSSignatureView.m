@@ -8,7 +8,6 @@
 #define DEGREES_TO_RADIANS(x) (M_PI * (x) / 180.0)
 
 @implementation RSSignatureView {
-	CAShapeLayer *_border;
 	BOOL _loaded;
 	EAGLContext *_context;
 	UIButton *saveButton;
@@ -20,20 +19,6 @@
 
 @synthesize sign;
 @synthesize manager;
-
-- (instancetype)init
-{
-	if ((self = [super init])) {
-		//_border = [CAShapeLayer layer];
-		//_border.strokeColor = [UIColor blackColor].CGColor;
-		//_border.fillColor = nil;
-		//_border.lineDashPattern = @[@4, @2];
-		
-		//[self.layer addSublayer:_border];
-	}
-	
-	return self;
-}
 
 - (void) didRotate:(NSNotification *)notification {
 	int ori=1;
@@ -140,8 +125,6 @@
 		
 	}
 	_loaded = true;
-	_border.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
-	_border.frame = self.bounds;
 }
 
 - (void)setRotateClockwise:(BOOL)rotateClockwise {
