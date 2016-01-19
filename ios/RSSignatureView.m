@@ -93,7 +93,7 @@
 			[clearButton setLineBreakMode:NSLineBreakByClipping];
 			[clearButton addTarget:self action:@selector(onClearButtonPressed)
 						forControlEvents:UIControlEventTouchUpInside];
-			[clearButton setTitle:@"Reset" forState:UIControlStateNormal];
+			[clearButton setTitle:@"clear" forState:UIControlStateNormal];
 			
 			clearButton.frame = CGRectMake(0, 0, buttonSize.width, buttonSize.height);
 			[clearButton setBackgroundColor:[UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1.f]];
