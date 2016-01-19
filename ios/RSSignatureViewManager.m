@@ -34,4 +34,10 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 					}];
 }
 
+RCT_EXPORT_METHOD(getBase64ImageData:(RCTResponseSenderBlock)callback)
+{
+    //NSString *imageData = [self.signView getImageData];
+    callback(@[[NSNull null], @"blah"]);
+}
+
 @end
