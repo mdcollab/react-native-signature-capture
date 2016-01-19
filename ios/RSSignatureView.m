@@ -24,12 +24,12 @@
 - (instancetype)init
 {
 	if ((self = [super init])) {
-		_border = [CAShapeLayer layer];
-		_border.strokeColor = [UIColor blackColor].CGColor;
-		_border.fillColor = nil;
-		_border.lineDashPattern = @[@4, @2];
+		//_border = [CAShapeLayer layer];
+		//_border.strokeColor = [UIColor blackColor].CGColor;
+		//_border.fillColor = nil;
+		//_border.lineDashPattern = @[@4, @2];
 		
-		[self.layer addSublayer:_border];
+		//[self.layer addSublayer:_border];
 	}
 	
 	return self;
