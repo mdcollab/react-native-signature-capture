@@ -5,6 +5,8 @@ var React = require('react-native');
 var {
   requireNativeComponent,
   DeviceEventEmitter,
+  findNodeHandle,
+  NativeModules,
   View
 } = React;
 
@@ -36,10 +38,20 @@ var SignatureCapture = React.createClass({
     subscription.remove();
   },
 
+  getImageData(): Promise {
+    let manager = NativeModules.RSSignatureViewManager;
+
+    return new Promise((resolve, reject) => manager.getBase64ImageData(
+      findNodeHandle(this.refs.nativeComponent),
+      (err, data) => err? reject(err): resolve(data)
+    ));
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
         <Component
+          ref="nativeComponent"
           style={styles.signatureBox}
           rotateClockwise={this.props.rotateClockwise}
           square={this.props.square}
