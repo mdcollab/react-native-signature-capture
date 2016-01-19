@@ -123,7 +123,6 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 		
 		time(NULL);
 		
-		self.backgroundColor = [UIColor whiteColor];
 		self.opaque = NO;
 		
 		self.context = context;
@@ -185,11 +184,11 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 - (void)drawRect:(CGRect)rect
 {
-	glClearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
+	glClearColor(240/255.f, 240/255.f, 240/255.f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	[effect prepareToDraw];
-	
+
 	// Drawing of signature lines
 	if (length > 2) {
 		glBindVertexArrayOES(vertexArray);
