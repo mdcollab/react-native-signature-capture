@@ -65,9 +65,8 @@
 			[clearButton addTarget:self action:@selector(onClearButtonPressed)
 						forControlEvents:UIControlEventTouchUpInside];
 			[clearButton setTitle:@"clear" forState:UIControlStateNormal];
-			
+            [clearButton setTitleColor:[UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f] forState:UIControlStateNormal];
 			clearButton.frame = CGRectMake(0, 0, buttonSize.width, buttonSize.height);
-			[clearButton setBackgroundColor:[UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1.f]];
 			[sign addSubview:clearButton];
 		}
 		else {
@@ -89,10 +88,9 @@
 			[clearButton setLineBreakMode:NSLineBreakByClipping];
 			[clearButton addTarget:self action:@selector(onClearButtonPressed)
 						forControlEvents:UIControlEventTouchUpInside];
-			[clearButton setTitle:@"Reset" forState:UIControlStateNormal];
-			
+			[clearButton setTitle:@"clear" forState:UIControlStateNormal];
+            [clearButton setTitleColor:[UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f] forState:UIControlStateNormal];
 			clearButton.frame = CGRectMake(sign.bounds.size.width - buttonSize.width, 0, buttonSize.width, buttonSize.height);
-			[clearButton setBackgroundColor:[UIColor colorWithRed:250/255.f green:250/255.f blue:250/255.f alpha:1.f]];
 			[sign addSubview:clearButton];
 		}
 		
