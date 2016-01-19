@@ -46,53 +46,31 @@
 		
 		[self addSubview:sign];
 		
-		if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-			
-			titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 24)];
-			[titleLabel setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height - 120)];
-			
-			[titleLabel setText:@"x_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"];
-			[titleLabel setLineBreakMode:NSLineBreakByClipping];
-			[titleLabel setTextAlignment: NSTextAlignmentCenter];
-			[titleLabel setTextColor:[UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f]];
-			//[titleLabel setBackgroundColor:[UIColor greenColor]];
-			[sign addSubview:titleLabel];
-            
-            CGSize buttonSize = CGSizeMake(70, 40.0);
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.height - 80, 24)];
+        [titleLabel setCenter:CGPointMake(50, self.bounds.size.height/2)];
+        [titleLabel setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];
+        [titleLabel setText:@"x_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"];
+        [titleLabel setLineBreakMode:NSLineBreakByClipping];
+        [titleLabel setTextAlignment: NSTextAlignmentLeft];
+        [titleLabel setTextColor:[UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f]];
+        [sign addSubview:titleLabel];
 
-			clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-			[clearButton setLineBreakMode:NSLineBreakByClipping];
-			[clearButton addTarget:self action:@selector(onClearButtonPressed)
-						forControlEvents:UIControlEventTouchUpInside];
-			[clearButton setTitle:@"clear" forState:UIControlStateNormal];
-            [clearButton setTitleColor:[UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f] forState:UIControlStateNormal];
-			clearButton.frame = CGRectMake(0, 0, buttonSize.width, buttonSize.height);
-			[sign addSubview:clearButton];
-		}
-		else {
-			
-			titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.height - 80, 24)];
-			[titleLabel setCenter:CGPointMake(40, self.bounds.size.height/2)];
-			[titleLabel setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];
-			[titleLabel setText:@"x_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"];
-			[titleLabel setLineBreakMode:NSLineBreakByClipping];
-			[titleLabel setTextAlignment: NSTextAlignmentLeft];
-			[titleLabel setTextColor:[UIColor colorWithRed:200/255.f green:200/255.f blue:200/255.f alpha:1.f]];
-			//[titleLabel setBackgroundColor:[UIColor greenColor]];
-			[sign addSubview:titleLabel];
+        CGSize buttonSize = CGSizeMake(40, 130.0); //Width/Height is swapped
 
-			CGSize buttonSize = CGSizeMake(40, 70.0); //Width/Height is swapped
-
-			clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-			[clearButton setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];
-			[clearButton setLineBreakMode:NSLineBreakByClipping];
-			[clearButton addTarget:self action:@selector(onClearButtonPressed)
-						forControlEvents:UIControlEventTouchUpInside];
-			[clearButton setTitle:@"clear" forState:UIControlStateNormal];
-            [clearButton setTitleColor:[UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f] forState:UIControlStateNormal];
-			clearButton.frame = CGRectMake(sign.bounds.size.width - buttonSize.width, 0, buttonSize.width, buttonSize.height);
-			[sign addSubview:clearButton];
-		}
+        clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [clearButton setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];
+        [clearButton setLineBreakMode:NSLineBreakByClipping];
+        [clearButton addTarget:self action:@selector(onClearButtonPressed)
+                    forControlEvents:UIControlEventTouchUpInside];
+        [clearButton setTitle:@"clear signature" forState:UIControlStateNormal];
+        [clearButton setTitleColor:[UIColor colorWithRed:100/255.f green:100/255.f blue:100/255.f alpha:1.f] forState:UIControlStateNormal];
+        clearButton.frame = CGRectMake(
+                0,
+                (sign.bounds.size.height - buttonSize.height) / 2,
+                buttonSize.width,
+                buttonSize.height
+        );
+        [sign addSubview:clearButton];
 		
 	}
 	_loaded = true;
