@@ -184,6 +184,7 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 
 - (void)drawRect:(CGRect)rect
 {
+    // TODO: dangerously hardcoded
 	glClearColor(240/255.f, 240/255.f, 240/255.f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
