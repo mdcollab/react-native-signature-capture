@@ -38,7 +38,13 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 RCT_EXPORT_METHOD(getBase64ImageData:(nonnull NSNumber *)reactTag callback:(RCTResponseSenderBlock)callback) {
     [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary *viewRegistry) {
         RSSignatureView *view = viewRegistry[reactTag];
-        callback(@[[NSNull null], [view getImageData]]);
+		NSString *imageData = [view getImageData];
+
+		NSArray *resp = imageData == nil?
+            @[@{@"message": @"No image was present."}, [NSNull null]]:
+            @[[NSNull null], imageData];
+
+        callback(resp);
     }];
 }
 

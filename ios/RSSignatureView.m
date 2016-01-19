@@ -121,6 +121,9 @@
 
 -(NSString *) getImageData {
     UIImage *image = [self.sign signatureImage:_rotateClockwise withSquare:_square];
+
+	if (image == nil) return nil;
+
     NSData *imageData = UIImagePNGRepresentation(image);
     return [imageData base64EncodedStringWithOptions:0];
 }
