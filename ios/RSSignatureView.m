@@ -187,4 +187,10 @@
 	[self.sign erase];
 }
 
+-(NSString *) getImageData {
+    UIImage *image = [self.sign signatureImage:_rotateClockwise withSquare:_square];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    return [imageData base64EncodedStringWithOptions:0];
+}
+
 @end
