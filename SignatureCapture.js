@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 
 var {
   requireNativeComponent,
@@ -8,7 +8,7 @@ var {
   findNodeHandle,
   NativeModules,
   View
-} = React;
+} = require('react-native');
 
 var Component = requireNativeComponent('RSSignatureView', null);
 
